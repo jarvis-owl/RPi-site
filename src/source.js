@@ -5,11 +5,20 @@
 	jarvis owl
 */
 
+//function to replace all specified characters in a string
 String.prototype.replaceAll = function(search, replacement) {
 		//I have no clue -- copied from:https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };
+
+//splice function
+String.prototype.splice = function(idx, rem, str) {
+    //source: https://stackoverflow.com/questions/4313841/javascript-how-can-i-insert-a-string-at-a-specific-index
+    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
+
+
 
 
 function updateSlider(val, nr)
@@ -42,7 +51,7 @@ $(function() {
 });
 
 $(function() {
-   var intervalMS = 2000;
+   var intervalMS = 5000;
    setInterval(function() {
 
 		//get tail
@@ -51,14 +60,10 @@ $(function() {
 			{
 				//handle return
 				//one timestamp = 25 chars
-				//alert(data[24] +','+ data[25] +','+ data[26]);
-				//data.insert(25,"\n")
-				//data.splice(5,0,"ENTER");
-				myString = data.replaceAll('\n','<br>');
 
-				//data[25] = "9";
-				//alert(typeof data + ',' + data);
-				//alert(typeof myString + ',' + myString);
+				myString = data.replaceAll('\n','<br>');
+        //alert(myString.splice(22,0,','));
+
 				$('#tail').html(myString);
 			});
    }, intervalMS);
