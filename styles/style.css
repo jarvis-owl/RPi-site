@@ -1,0 +1,116 @@
+/* 27.09.2016 Jensen V001 */
+/* optimized for  1024x768px*/
+
+body {
+	background-color: #FFFFFF; /* #D8D7D7; */
+	margin:100px 40px 10px 70px;
+	font: 80%/ 1.5 "DroidSerifBold", Georgia, Times New Roman, serif; /* Warum kann ich auf anderen Websites Droid Sans lesen, wenn die Schrift vorher nicht installiert war? */
+    font-family: "DroidSerifBold",Calibri,Verdana,serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.5;
+	color: #000000; /* #0D205A*/
+}
+
+p {
+	font: 80%/ 1.5 "DroidSerifBold", Georgia, Times New Roman, serif;
+    font-family: "DroidSerifBold",Calibri,Verdana,serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.5;
+	color: #000000;/*#0D205A; */
+	margin: 5px 50px 20px 50px;
+}
+
+#banner
+{
+	position:absolute;
+	top:20px;
+	left:70px;
+}
+
+#left_box{
+	position:relative;
+	float:left;
+	width:49%;
+	height:650px; /* 590 or 550px */
+	border:1px solid black;
+	background:#DADADA;
+}
+#right_box {
+	position:relative;
+	float:right;
+	width:49%;
+	height: 650px;/*590px or 550px; */
+	border:1px solid black;
+	background:rgb(216,215,215);
+}
+
+#energy{
+	position:absolute;
+}
+
+#battery{
+	position:absolute;
+	bottom:20px;
+	left:25px;
+}
+
+
+#timestamp {
+	position:absolute;
+	top:25px;
+	left:78%;
+}
+
+/* Special styling for WebKit/Blink  by: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/  */
+input[type=range]::-webkit-slider-thumb
+{
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 45px;
+  width: 20px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb
+{
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 45px;
+  width: 30px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb
+{
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 45px;
+  width: 20px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+
+input[type=range]
+{
+	width:270px;
+	height:30px;
+	padding-left:5px; padding-right:5px;
+	margin-top:10px;
+	margin-left:20px;
+	-webkit-border-radius:5px;
+
+}
