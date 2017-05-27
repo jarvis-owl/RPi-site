@@ -15,20 +15,9 @@ function updateSlider(val, nr)
 	var str = "sliderValue";
 	str += (nr+1);
 	var sliderout =document.getElementById(str);
-
 	//write value into html
 	sliderValue[nr]=parseInt(val);
 	sliderout.innerHTML=''+sliderValue[nr]+' %';
-
-
-	//post values to server
-	$.post('bin/process.php',
-	{val1:sliderValue[0] , val2:sliderValue[1] , val3:sliderValue[2] , val4:sliderValue[3] },
-	function(data)
-	{
-		//handle return
-		//$('#feedback').html(data);
-	});
 
 }
 
@@ -40,9 +29,15 @@ $(document).ready(function()
 
 //refresh graphs without reload complete page
 $(function() {
-   var intervalMS = 60000; 
+   var intervalMS = 60000;
    setInterval(function() {
       $("#actual").prop("src", "images/actual.jpg?" + +new Date());
-
+			//get tail
+			$.post('timestamps_ln.log',{NULL},
+			function(data)
+			{
+				//handle return
+				$('#tail').html(data);
+			});
    }, intervalMS);
 });

@@ -6,8 +6,29 @@
   very simple site to display things:
     - actual picture
     - temperature
+
+    PHP log tail: https://gist.github.com/deizel/3846335
 -->
 
+<?php
+if (isset($_GET['ajax'])) {
+  session_start();
+  $handle = fopen('tail.php', 'r');//timestamps_ln.log - /private/var/log/system.log
+  if (isset($_SESSION['offset'])) {
+    $data = stream_get_contents($handle, -1, $_SESSION['offset']);
+    echo "TRUE";
+    echo nl2br($data);
+
+  } else {
+    fseek($handle, 0, SEEK_END);
+    $_SESSION['offset'] = ftell($handle);
+    echo "FALSE";
+  }
+  exit();
+}
+?>
+
+<!doctype html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,17 +36,24 @@
   <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
   <script type="text/javascript" src="src/jquery.js"></script>
+  <script src="http://creativecouple.github.com/jquery-timing/jquery-timing.min.js"></script>
   <script type ="text/javascript" src="src/source.js"></script>
 
   <script>
   'use strict';
   /* globals */
-
+  $(function() {
+      $.repeat(5000, function() {
+      //  $.get('tail.php?ajax', function(data) { //tail.php?ajax
+      //    $('#tail').append(data);
+      //  });
+      });
+    });
   </script>
   <noscript>
 unfortunately javascript is disabled - this page wont work properly
 </noscript>
-<title>Display Things</title>
+<title>RPi Monitor</title>
 </head>
 <body>
 <!-- ======================================== left box ========================================= -->
@@ -38,8 +66,17 @@ unfortunately javascript is disabled - this page wont work properly
 <?php
   $log = file_get_contents('timestamps_ln.log',NULL,NULL,-100,200);
   $text = "test";
-  print( $log );
+//  print( $log );
+
+  $file = file('timestamps_ln.log');
+  echo $file[count($file)-10] ."<br>";
+  echo $file[count($file)-9];
+  echo $file[count($file)-1];
+
+
  ?>
+
+  <div id="tail">Starting up...</div>
 
 </div>
 
