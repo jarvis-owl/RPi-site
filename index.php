@@ -69,9 +69,9 @@ unfortunately javascript is disabled - this page wont work properly
 //  print( $log );
 
   $file = file('timestamps_ln.log');
-  echo $file[count($file)-10] ."<br>";
-  echo $file[count($file)-9];
-  echo $file[count($file)-1];
+  echo $file[count($file)-3] ."<br>";
+  echo $file[count($file)-2] ."<br>";
+  echo $file[count($file)-1] ."<br>";
 
 
  ?>
