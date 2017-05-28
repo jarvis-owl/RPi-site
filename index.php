@@ -67,12 +67,12 @@ unfortunately javascript is disabled - this page wont work properly
   $log = file_get_contents('timestamps_ln.log',NULL,NULL,-100,200);
   $text = "test";
 //  print( $log );
-
+/* work, but is better/more flexible with JS
   $file = file('timestamps_ln.log');
   echo $file[count($file)-3] ."<br>";
   echo $file[count($file)-2] ."<br>";
   echo $file[count($file)-1] ."<br>";
-
+*/
 
  ?>
 
