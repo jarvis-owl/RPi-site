@@ -59,6 +59,7 @@ unfortunately javascript is disabled - this page wont work properly
 <!-- ======================================== left box ========================================= -->
 <div class="box" id="left_box">
 <img id="actual" src="images/actual.jpg" alt="actual picture from RPiCam" width=95%>
+<img id="actual_histrogram" src="images/actual_histogram.jpg" alt="actual histogram" width=95%>
 
 </div>
 <!-- ======================================== right box ======================================== -->
