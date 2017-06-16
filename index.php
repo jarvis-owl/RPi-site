@@ -56,6 +56,7 @@ unfortunately javascript is disabled - this page wont work properly
 <title>RPi Monitor</title>
 </head>
 <body>
+
 <!-- ======================================== left box ========================================= -->
 <div class="box" id="left_box">
 <img id="actual" src="images/actual.jpg" alt="actual picture from RPiCam" width=95%>
@@ -80,6 +81,7 @@ unfortunately javascript is disabled - this page wont work properly
   <div id="tail">Starting up...</div>
 
 </div>
-
+<br>
+  <a style="padding-top:30px" href="http://raspberrypi:8081" class="button" >Stream</a>
 </body>
 </html>
