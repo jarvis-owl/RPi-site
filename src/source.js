@@ -35,16 +35,13 @@ function updateSlider(val, nr)
 }
 
 
-$(document).ready(function()
-{
-	// alert('jq worx on ready');
-});
+
 
 //refresh graphs without reload complete page
 $(function() {
-   var intervalMS = 10000;
+   var intervalMS = 30000; //default 30s
    setInterval(function() {
-      $("#actual").prop("src", "images/actual.jpg?" + +new Date());
+      $("#actual").prop("src", "images/lastsnap_ln.jpg?" + +new Date());
 
 
    }, intervalMS);
@@ -54,17 +51,29 @@ $(function() {
    var intervalMS = 5000;
    setInterval(function() {
 
-		//get tail
-		$.post('tail.php',{},
-			function(data)
-			{
-				//handle return
-				//one timestamp = 25 chars
-
-				myString = data.replaceAll('\n','<br>');
-        //alert(myString.splice(22,0,','));
-
-				$('#tail').html(myString);
-			});
+  //   getTail();
    }, intervalMS);
+});
+
+function getTail() {
+  //get tail
+  $.post('tail.php',{},
+    function(data)
+    {
+      //handle return
+      //one timestamp = 25 chars
+
+      myString = data.replaceAll('\n','<br>');
+      //alert(myString.splice(22,0,','));
+
+      $('#tail').html(myString);
+    });
+
+    //return myVar;
+}
+
+$(document).ready(function()
+{
+	// alert('jq worx on ready');
+  getTail();
 });
