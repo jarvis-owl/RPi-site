@@ -42,7 +42,8 @@ $(function() {
    var intervalMS = 30000; //default 30s
    setInterval(function() {
       $("#actual").prop("src", "images/lastsnap_ln.jpg?" + +new Date());
-
+      $("#actual_histrogram").prop("src", "images/actual_histrogram.jpg?" + +new Date());
+      getTail();
 
    }, intervalMS);
 });
