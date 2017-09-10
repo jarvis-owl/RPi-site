@@ -62,7 +62,7 @@ unfortunately javascript is disabled - this page wont work properly
 <!-- <img id="actual" src="images/actual.jpg" alt="actual picture from RPiCam" width=95%> -->
 <img id="actual" src="images/lastsnap_ln.jpg" alt="actual picture from RPiCam" width=95%>
 
-<img id="actual_histrogram" src="images/actual_histogram.jpg" alt="actual histogram" width=95%>
+
 
 </div>
 <!-- ======================================== right box ======================================== -->
@@ -84,6 +84,8 @@ unfortunately javascript is disabled - this page wont work properly
 
 </div>
 <br>
-  <a style="padding-top:30px" href="http://raspberrypi:8081" class="button" >Stream</a>
+  <a style="padding-top:20px; padding-left:32px;" href="http://raspberrypi:8081" class="button" >Stream</a>
+  <br><br>
+  <img id="actual_histrogram" src="images/actual_histogram.jpg" alt="actual histogram" width=44%>
 </body>
 </html>
